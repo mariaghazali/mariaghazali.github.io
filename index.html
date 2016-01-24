@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Map by mariaghazali</title>
+    <title>test by mariaghazali</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
@@ -15,7 +15,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Map</h1>
+        <h1>test</h1>
         <p></p>
 
 
@@ -24,37 +24,11 @@
       </header>
       <section>
         <h3>
-<a id="eurobats-key-underground-sites-map" class="anchor" href="#eurobats-key-underground-sites-map" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EUROBATS Key Underground Sites map</h3>
+<a id="hello-world" class="anchor" href="#hello-world" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hello world!</h3>
 
-<p>Hover over the plot with your mouse to see number of key sites in each country.
-Europe is presented by default, although you can specify region by clicking on <strong>"Edit me!"</strong> button. Chart editor will open. Choose <strong>"Customize"</strong> tab and choose the <strong>Region</strong> (World, Africa, Asia, etc). All countries with the number of reported keysites are presented in the table, left to the plot. You can sort table by clicking on column names.</p>
-
-<div class="highlight highlight-source-r"><pre>library(<span class="pl-smi">googleVis</span>)
-<span class="pl-smi">op</span> <span class="pl-k">&lt;-</span> options(<span class="pl-v">gvis.plot.tag</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>chart<span class="pl-pds">'</span></span>)</pre></div>
-
-<div class="highlight highlight-source-r"><pre><span class="pl-smi">data</span><span class="pl-k">&lt;-</span>read.csv(<span class="pl-s"><span class="pl-pds">"</span>keysites2.csv<span class="pl-pds">"</span></span>,<span class="pl-v">sep</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>,<span class="pl-pds">"</span></span>)
-<span class="pl-smi">EUROBATS</span><span class="pl-k">&lt;-</span>na.omit(<span class="pl-smi">data</span>[,c(<span class="pl-s"><span class="pl-pds">"</span>country<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>KeysitesAC19<span class="pl-pds">"</span></span>)])
-
-<span class="pl-smi">gchart.europe</span> <span class="pl-k">&lt;-</span> gvisGeoChart(<span class="pl-v">data</span> <span class="pl-k">=</span> <span class="pl-smi">EUROBATS</span>,
-                        <span class="pl-v">locationvar</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>country<span class="pl-pds">"</span></span>,
-                        <span class="pl-v">colorvar</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>KeysitesAC19<span class="pl-pds">'</span></span>,
-                        <span class="pl-v">options</span> <span class="pl-k">=</span> <span class="pl-k">list</span>(<span class="pl-v">displayMode</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>regions<span class="pl-pds">"</span></span>, <span class="pl-v">resolution</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>countries<span class="pl-pds">"</span></span>,
-                        <span class="pl-v">region</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>150<span class="pl-pds">"</span></span>, <span class="pl-v">backgroundColor</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>lightblue<span class="pl-pds">"</span></span>,
-                        <span class="pl-v">colorAxis</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>{minValue: 0, colors: ['#FFF7BC', '#FEE391', '#FEC44F','#FE9929','#EC7014','#CC4C02','#993404','#662506']}<span class="pl-pds">"</span></span>,
-                        <span class="pl-v">colorAxis.minValue</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>,
-                        <span class="pl-v">gvis.editor</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Edit me!<span class="pl-pds">"</span></span>))
-
-<span class="pl-smi">gtable.all</span> <span class="pl-k">&lt;-</span> gvisTable(<span class="pl-smi">EUROBATS</span>, 
-                        <span class="pl-v">options</span> <span class="pl-k">=</span> <span class="pl-k">list</span>(<span class="pl-v">page</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>enable<span class="pl-pds">'</span></span>,<span class="pl-v">pageSize</span> <span class="pl-k">=</span> <span class="pl-c1">15</span>))
-
-<span class="pl-smi">g.ch.t</span> <span class="pl-k">&lt;-</span> gvisMerge(<span class="pl-smi">gchart.europe</span>, <span class="pl-smi">gtable.all</span>, <span class="pl-v">horizontal</span><span class="pl-k">=</span><span class="pl-c1">TRUE</span>)
-
-plot(<span class="pl-smi">g.ch.t</span>)</pre></div>
-
-<div class="highlight highlight-source-r"><pre><span class="pl-c">## Set options back to original options</span>
-options(<span class="pl-smi">op</span>)</pre></div>
-
-<p>Keysites data was taken from <a href="http://www.eurobats.org/sites/default/files/documents/pdf/Advisory_Committee/Doc_StC9_AC19_33_Report%20IWGUndergroundSites.pdf">Report of the Intersessional Working Group on Key Underground Sites</a> presented at <a href="http://www.eurobats.org/official_documents/advisory_committee/19th_meeting_advisory_committee">19th Advisory Committee Meeting, Greece, 2014</a>.</p>
+<h3>
+<a id="my-slides-for-the-developing-data-project-is-here" class="anchor" href="#my-slides-for-the-developing-data-project-is-here" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>my slides for the Developing Data Project is <a href="mariaghazali.github.io/my.1st.app/index.html">HERE</a>
+</h3>
       </section>
       <footer>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
